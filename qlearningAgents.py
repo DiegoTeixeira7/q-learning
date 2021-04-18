@@ -220,3 +220,5 @@ class ApproximateQAgent(PacmanQAgent):
       # you might want to print your weights here for debugging
       "*** YOUR CODE HERE ***"
       pass
+
+# python2 pacman.py -p PacmanQAgent -x 300 -n 310 -l mediumClassic
