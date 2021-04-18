@@ -116,7 +116,21 @@ class QLearningAgent(ReinforcementAgent):
     legalActions = self.getLegalActions(state)
     action = None
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+
+    bestAction = [None]
+    maxE = float("-inf")
+    
+    for action in legalActions:
+      if self.getQValue(state, action) > maxE:
+        maxE = self.getQValue(state, action)
+        bestAction[0] = action
+      elif self.getQValue(state, action) == maxE:
+        bestAction.append(action)
+
+    if util.flipCoin(1 - self.epsilon):
+      action = random.choice(bestAction)
+    else:
+      action = random.choice(legalActions)
 
     return action
 
@@ -133,10 +147,6 @@ class QLearningAgent(ReinforcementAgent):
     qValue = 0.0
     qValue += self.getQValue(state, action) + self.alpha * (reward + self.discount * self.getValue(nextState) - self.getQValue(state, action))
     self.values[state, action] = qValue
-
-    return qValue
-
-    util.raiseNotDefined()
 
 class PacmanQAgent(QLearningAgent):
   "Exactly the same as QLearningAgent, but with different default parameters"
