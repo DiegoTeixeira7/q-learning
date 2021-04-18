@@ -65,14 +65,18 @@ class QLearningAgent(ReinforcementAgent):
       return 0.0
     
     else:
+      bestValue = [None]
       maxE = float('-inf')
 
       for action in self.getLegalActions(state):
         qValAction = self.getQValue(state, action)
         if qValAction > maxE:
           maxE = qValAction
+          bestValue[0] = maxE
+        elif qValAction == maxE:
+          bestValue.append(maxE)
       
-      return maxE
+      return random.choice(bestValue)
 
     util.raiseNotDefined()
 
