@@ -1,0 +1,22 @@
+Existe algum epsilon e taxa de aprendizagem para os quais é altamente provável
+(chance maior que 99%) que a política ótima seja aprendida depois de 50 iterações? 
+  
+Não é possível. Mesmo com ações aleatórias com probabilidade epsilon, os q-valores finais devem ser parecidos com os do agente de iteração de valor, especialmente em caminhos por onde o agente passa muitas vezes. Porém, a soma das recompensas será menor do que os
+q-valores por causa das ações aleatórias e da fase inicial de aprendizagem.
+
+A taxa de aprendizagem é o quanto o agente vai desvalorizando as amostras antigas, se for 0, ele está dando o mesmo peso para a amostra antiga e a amostra nova, porém se for 1, ele descarta a amostra antiga e fica só com a amostra nova. Se for um valor entre 0 e 1, significa que o agente vai dar valor para o valor antigo mas vai valorizar o valor novo. A cada vez que você vai para outro estado, você obtem um valor mais ajustado baseado nos valores futuros e vão melhorando. Por isso tem que ter o alfa, a primeira vez que voce passa num lugar e obteve uma recompensa e vai para outro estados e obtem outra recompensa, isso vai sendo ajustado. Com o tempo voce vai sabendo qual a utilidade de passar para um estado S fazendo a ação A. Alta taxa de aprendizado significa aprendizado mais rápido, mas com maior chance de instabilidade.
+  
+Para esse exemplo, independente do epsilon e tendo uma taxa de aprendizado entre 0 a 1, ele converge para a política ótima em 50 iterações.
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,10 +47,7 @@ class QLearningAgent(ReinforcementAgent):
       a state or (state,action) tuple
     """
     "*** YOUR CODE HERE ***"
-
     return self.values[state, action]
-
-    util.raiseNotDefined()
 
 
   def getValue(self, state):
@@ -78,8 +75,6 @@ class QLearningAgent(ReinforcementAgent):
       
       return random.choice(bestValue)
 
-    util.raiseNotDefined()
-
   def getPolicy(self, state):
     """
       Compute the best action to take in a state.  Note that if there
@@ -98,8 +93,6 @@ class QLearningAgent(ReinforcementAgent):
         bestAction.append(action)
 
     return random.choice(bestAction)
-
-    util.raiseNotDefined()
 
   def getAction(self, state):
     """
@@ -220,5 +213,3 @@ class ApproximateQAgent(PacmanQAgent):
       # you might want to print your weights here for debugging
       "*** YOUR CODE HERE ***"
       pass
-
-# python2 pacman.py -p PacmanQAgent -x 300 -n 310 -l mediumClassic
